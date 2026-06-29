@@ -1,68 +1,151 @@
-# Data WraeHouse Project with PostgreSQL
-This project demonstrates a comprehensive data warehousing and analytics solution, from building a data warehouse to generating actionable insights. Designed as a portfolio project, it highlights industry best practices in data engineering and analytics.
+# 🏗️ Data Warehouse Project with PostgreSQL
 
----
-## 🏗️ Data Architecture
+This project demonstrates the end-to-end development of a modern data warehouse using **PostgreSQL**, following industry-standard data engineering practices. It covers the complete ETL process—from ingesting raw data to transforming it into an analytics-ready data model using the **Medallion Architecture**.
 
-The data architecture for this project follows Medallion Architecture **Bronze**, **Silver**, and **Gold** layers:
-1. **Bronze Layer**: Stores raw data as-is from the source systems. Data is ingested from CSV Files into SQL Server Database.
-2. **Silver Layer**: This layer includes data cleansing, standardization, and normalization processes to prepare data for analysis.
-3. **Gold Layer**: Houses business-ready data modeled into a star schema required for reporting and analytics.
-
----
-## 📖 Project Overview
-
-This project involves:
-
-1. **Data Architecture**: Designing a Modern Data Warehouse Using Medallion Architecture **Bronze**, **Silver**, and **Gold** layers.
-2. **ETL Pipelines**: Extracting, transforming, and loading data from source systems into the warehouse.
-3. **Data Modeling**: Developing fact and dimension tables optimized for analytical queries.
-4. **Analytics & Reporting**: Creating SQL-based reports and dashboards for actionable insights.
+The project also showcases dimensional modeling techniques and SQL-based analytics to support business intelligence and data-driven decision-making.
 
 ---
 
-## 🚀 Project Requirements
+# 📐 Data Architecture
 
-### Building the Data Warehouse (Data Engineering)
+This project follows the **Medallion Architecture**, organizing data into three distinct layers:
 
-#### Objective
-Develop a modern data warehouse using SQL Server to consolidate sales data, enabling analytical reporting and informed decision-making.
+### 🥉 Bronze Layer
+- Stores raw data exactly as received from the source systems.
+- Data is imported from CSV files into PostgreSQL with minimal transformation.
+- Serves as the foundation for all downstream processing.
 
-#### Specifications
-- **Data Sources**: Import data from two source systems (ERP and CRM) provided as CSV files.
-- **Data Quality**: Cleanse and resolve data quality issues prior to analysis.
-- **Integration**: Combine both sources into a single, user-friendly data model designed for analytical queries.
-- **Scope**: Focus on the latest dataset only; historization of data is not required.
+### 🥈 Silver Layer
+- Cleanses, standardizes, and validates the raw data.
+- Handles missing values, duplicates, and applies business rules.
+- Produces high-quality, consistent datasets for analytical processing.
+
+### 🥇 Gold Layer
+- Contains business-ready data modeled using a **Star Schema**.
+- Includes dimension and fact views optimized for reporting and analytical queries.
+- Serves as the primary layer for dashboards and business intelligence.
 
 ---
 
-### BI: Analytics & Reporting (Data Analysis)
+# 📖 Project Overview
 
-#### Objective
-Develop SQL-based analytics to deliver detailed insights into:
-- **Customer Behavior**
-- **Product Performance**
-- **Sales Trends**
+This project demonstrates the following key data engineering concepts:
 
-These insights empower stakeholders with key business metrics, enabling strategic decision-making.  
+- **Data Warehouse Design** using the Medallion Architecture.
+- **ETL Pipeline Development** for extracting, transforming, and loading data.
+- **Data Cleansing & Transformation** to improve data quality and consistency.
+- **Dimensional Data Modeling** using fact and dimension tables.
+- **SQL-Based Analytics** to generate business insights.
 
-## 📂 Repository Structure
-```
+---
+
+# 🚀 Project Requirements
+
+## Data Engineering
+
+### Objective
+
+Build a modern data warehouse in PostgreSQL that consolidates CRM and ERP sales data into a centralized repository optimized for reporting and analytics.
+
+### Specifications
+
+- Import data from two source systems (**CRM** and **ERP**) provided as CSV files.
+- Perform data cleansing and resolve data quality issues during the ETL process.
+- Integrate both sources into a unified analytical data model.
+- Design the warehouse using the Medallion Architecture.
+- Create fact and dimension models for efficient analytical queries.
+- Focus on the latest available data; historical tracking is not included.
+
+---
+
+## 📊 Analytics & Reporting
+
+### Objective
+
+Develop SQL-based analytical queries to generate meaningful business insights in the following areas:
+
+- 👥 Customer Behavior
+- 📦 Product Performance
+- 💰 Sales Performance
+- 📈 Sales Trends
+
+These insights help stakeholders monitor key business metrics and support data-driven decision-making.
+
+---
+
+# 🛠️ Tech Stack
+
+- **Database:** PostgreSQL
+- **Language:** SQL
+- **Architecture:** Medallion Architecture
+- **Data Modeling:** Star Schema
+- **Source Data:** CSV Files
+- **Version Control:** Git & GitHub
+
+---
+
+# 📂 Repository Structure
+
+```text
 data-warehouse-project/
 │
-├── datasets/                           # Raw datasets used for the project (ERP and CRM data)
+├── datasets/                      # Raw CRM and ERP datasets
 │
-├── scripts/                            # SQL scripts for ETL and transformations
-│   ├── bronze/                         # Scripts for extracting and loading raw data
-│   ├── silver/                         # Scripts for cleaning and transforming data
-│   ├── gold/                           # Scripts for creating analytical models
+├── scripts/
+│   ├── bronze/                    # Raw data ingestion scripts
+│   ├── silver/                    # Data cleansing and transformation scripts
+│   └── gold/                      # Star schema and analytical view scripts
 │
-├── README.md                           # Project overview and instructions
-├── LICENSE                             # License information for the repository
+├── README.md                      # Project documentation
+└── LICENSE                        # MIT License
 ```
 
 ---
 
-## 🛡️ License
+# ⚙️ Project Workflow
 
-This project is licensed under the [MIT License](LICENSE). You are free to use, modify, and share this project with proper attribution.
+```text
+           CSV Files
+               │
+               ▼
+      ┌─────────────────┐
+      │  Bronze Layer   │
+      │   Raw Data      │
+      └─────────────────┘
+               │
+               ▼
+      ┌─────────────────┐
+      │  Silver Layer   │
+      │ Clean & Transform│
+      └─────────────────┘
+               │
+               ▼
+      ┌─────────────────┐
+      │   Gold Layer    │
+      │ Star Schema     │
+      └─────────────────┘
+               │
+               ▼
+     Reports & Analytics
+```
+
+---
+
+# 📌 Key Features
+
+- End-to-end ETL pipeline
+- Layered Medallion Architecture
+- Data cleansing and validation
+- Standardized business-ready datasets
+- Star Schema data modeling
+- SQL stored procedures for ETL
+- Analytical views for reporting
+- Modular SQL scripts for easy maintenance
+
+---
+
+# 🛡️ License
+
+This project is licensed under the **MIT License**.
+
+Feel free to use, modify, and share this project with proper attribution.
